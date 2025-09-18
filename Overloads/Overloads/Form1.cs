@@ -78,13 +78,22 @@ namespace Overloads
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if(emp1.valor_patrimonial > emp2.valor_patrimonial)
+            if (emp1 == null || emp2 == null)
+            {
+                MessageBox.Show("É necessário cadastrar as duas empresas primeiro!");
+                return; // Sai do método para não executar o resto do código
+            }
+            if (emp1.valor_patrimonial > emp2.valor_patrimonial)
             {
                 MessageBox.Show(emp1.Print());
             }
-            else
+            else if (emp2.valor_patrimonial > emp1.valor_patrimonial)
             {
                 MessageBox.Show(emp2.Print());
+            }
+            else
+            {
+                MessageBox.Show(emp1.Print() + "\n\n" + emp2.Print());
             }
         }
     }
