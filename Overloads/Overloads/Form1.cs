@@ -25,21 +25,18 @@ namespace Overloads
                 this.qntd_funcionarios = qntd_funcionarios;
                 this.valor_patrimonial = valor_patrimonial;
             }
+            public string Print()
+            {
+                return "Nome da empresa: " + nome +
+                    "\nEndereço: " + endereco +
+                    "\nCidade: " + cidade +
+                    "\nEstado: " + estado +
+                    "\nQuantidade de funcionários: " + qntd_funcionarios +
+                    "\nValor patrimonial da empresa: " + valor_patrimonial;
+            }
         }
-        public string Print()
-        {
-            return "Nome da empresa: " + nome +
-                "\nEndereço: " + endereco +
-                "\nCidade: " + cidade +
-                "\nEstado: " + estado +
-                "\nQuantidade de funcionários: " + qntd_funcionarios +
-                "\nValor patrimonial da empresa: " + valor_patrimonial;
-        }
-
-        Empresa empresa = null;
+        
         Empresa emp1, emp2;
-        //Empresa empresa1 = new Empresa();
-        //Empresa empresa2 = new Empresa(MgForte, Rua teste12, Birigui, SP, 102, 1200.40);
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -81,7 +78,14 @@ namespace Overloads
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Print();
+            if(emp1.valor_patrimonial > emp2.valor_patrimonial)
+            {
+                MessageBox.Show(emp1.Print());
+            }
+            else
+            {
+                MessageBox.Show(emp2.Print());
+            }
         }
     }
 }
